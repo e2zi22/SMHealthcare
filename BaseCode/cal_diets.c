@@ -34,9 +34,10 @@ void loadDiets(const char* DIETFILEPATH) {
     }
 
      // ToCode: to read a list of the diets from the given file
-    while () {
-    	
+    while (fscanf(file, "%49s %d", diet_list[diet_list_size].food_name, &diet_list[diet_list_size].calories_intake) == 2) {
+    	diet_list_size++;
         if (diet_list_size >= MAX_DIETS){
+        	printf("Maximum number of diets reached. Stopping further loading.\n");
         	break;
 		}
     }
@@ -57,16 +58,35 @@ void inputDiet(HealthData* health_data) {
     
     // ToCode: to provide the options for the diets to be selected
     printf("The list of diets:\n");
-    
+    for (i = 0; i < diet_list_size; i++) 
+    	printf("%d, %s (%d kcal)\n", i+1, diet_list[i].food_name, diet_list[i].calories_intake);
+	
+    printf("4. Exit\n"); //end
     
 	// ToCode: to enter the diet to be chosen with exit option
-    
+    printf("Enter the number of your choice: ");
+    scanf("%d", &choice);
 
     // ToCode: to enter the selected diet in the health data
-    
+    if (choice == diet_list_size +1) {
+    	printf("Exiting diet select\n");
+    	return;
+	}
 
     // ToCode: to enter the total calories intake in the health data
-
-
+	Diet selected_diet = diet_list[choice - 1];
+	health_data->total_calories += selected_diet.calories_intake;
+	
+	printf("You selcted: %s (%d kcal)\n", selected_diet.food_name, selected_diet.calories_intake);
+	printf("Total calories intake updated: %d kcal\n", health_data->total_calories_intake);
 }
+
+
+
+
+
+
+
+
+
 

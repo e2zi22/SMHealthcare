@@ -75,7 +75,7 @@ void inputDiet(HealthData* health_data) {
 
     // ToCode: to enter the total calories intake in the health data
 	Diet selected_diet = diet_list[choice - 1];
-	health_data->total_calories += selected_diet.calories_intake;
+	health_data->total_calories_intake += selected_diet.calories_intake;
 	
 	printf("You selcted: %s (%d kcal)\n", selected_diet.food_name, selected_diet.calories_intake);
 	printf("Total calories intake updated: %d kcal\n", health_data->total_calories_intake);

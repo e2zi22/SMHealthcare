@@ -30,10 +30,8 @@ int main() {
     
     // ToCode: to run the "Healthcare Management Systems" until all calories are used up or the user wants to exit the system
     do {
-    	if (health_data.total_calories_intake - health_data.total_calories_burned <= 0){      //check if player consumed all calories
-            printf("You have consumed all your calories for today! \n");
-		} 
-		else{
+    	
+		
 			printf("\n=======================================================================\n");
         	printf("[Healthcare Management Systems] \n");
         	printf("1. Exercise \n");
@@ -43,7 +41,7 @@ int main() {
         	printf("Select the desired number: ");
         	scanf("%d", &choice);
         	printf("=======================================================================\n");
-        }
+        
         
 		// ToCode: to run the sysmtem based on the user's choice
         switch (choice) {
@@ -69,8 +67,18 @@ int main() {
                 printf("[Error] Invalid option. \n");
                 printf("Please try again! \n");
         }
-    } while (choice != 4);
 
+
+//		int remain_calories = health_data->total_calories_intake - health_data->total_calories_burned - BASAL_METABOLIC_RATE;
+	
+	//	if (remain_calories == 0)
+	//		break;
+	
+	
+	
+    } while (choice != 4);
+	
+	
     return 0;
 }
 

@@ -25,8 +25,11 @@ int main() {
     
     // Tocode: to read the list of the exercises and diets
     loadExercises(EXERCISEFILEPATH);
+    //if(exercise_list_size ==0) 
+    //	printf("No exercises loaded..\n");
     loadDiets(DIETFILEPATH);
-    
+    //if(diet_list_size == 0)
+    //	printf("No diet loaded...\n");
     
     // ToCode: to run the "Healthcare Management Systems" until all calories are used up or the user wants to exit the system
     do {
@@ -54,7 +57,7 @@ int main() {
                 break;
                 
             case 3:
-            	printHealthData(&health_data);  //printf
+            	printHealthData(&health_data);  //print healthdata
                 break;
                 
             case 4:
@@ -69,14 +72,8 @@ int main() {
         }
 
 
-//		int remain_calories = health_data->total_calories_intake - health_data->total_calories_burned - BASAL_METABOLIC_RATE;
 	
-	//	if (remain_calories == 0)
-	//		break;
-	
-	
-	
-    } while (choice != 4);
+    } while (choice != 4);  //4-> End system
 	
 	
     return 0;
